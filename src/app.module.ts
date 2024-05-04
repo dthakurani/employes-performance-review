@@ -13,6 +13,7 @@ import { CommonModule } from './modules/common/common.module';
 import { GuardsModule } from './modules/guards/guard.module';
 import { UsersModule } from './modules/users/users.module';
 import { DesignationsModule } from './modules/designations/designations.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { DesignationsModule } from './modules/designations/designations.module';
     CommonModule,
     UsersModule,
     DesignationsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
