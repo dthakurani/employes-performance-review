@@ -14,6 +14,8 @@ import { GuardsModule } from './modules/guards/guard.module';
 import { UsersModule } from './modules/users/users.module';
 import { DesignationsModule } from './modules/designations/designations.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { RoleGuard } from './modules/guards/role.guard';
 
 @Module({
   imports: [
@@ -34,7 +36,13 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: RoleGuard,
+    },
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
