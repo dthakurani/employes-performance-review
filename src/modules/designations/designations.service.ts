@@ -16,10 +16,10 @@ export class DesignationsService {
 
     if (query.searchString) {
       whereQuery = [
-        { title: ILike(query.searchString) },
-        { level: ILike(query.searchString) },
-        { technology: ILike(query.searchString) },
-        { specialization: ILike(query.searchString) },
+        { title: ILike(`%${query.searchString}%`) },
+        { level: ILike(`%${query.searchString}%`) },
+        { technology: ILike(`%${query.searchString}%`) },
+        { specialization: ILike(`%${query.searchString}%`) },
       ];
     }
 
