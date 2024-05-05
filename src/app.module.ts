@@ -14,6 +14,7 @@ import { GuardsModule } from './modules/guards/guard.module';
 import { UsersModule } from './modules/users/users.module';
 import { DesignationsModule } from './modules/designations/designations.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { PerformanceReviewTopicsModule } from './modules/performance-review-topics/performance-review-topics.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AuthModule } from './modules/auth/auth.module';
     UsersModule,
     DesignationsModule,
     AuthModule,
+    PerformanceReviewTopicsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
