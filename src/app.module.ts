@@ -11,6 +11,9 @@ import { AppService } from './app.service';
 import { MorganLoggerMiddleware } from './modules/common/middlewares/morgan-logger.middleware';
 import { CommonModule } from './modules/common/common.module';
 import { GuardsModule } from './modules/guards/guard.module';
+import { UsersModule } from './modules/users/users.module';
+import { DesignationsModule } from './modules/designations/designations.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -26,6 +29,9 @@ import { GuardsModule } from './modules/guards/guard.module';
     }),
     GuardsModule,
     CommonModule,
+    UsersModule,
+    DesignationsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
