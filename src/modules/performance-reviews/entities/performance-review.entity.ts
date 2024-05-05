@@ -1,4 +1,3 @@
-import { PerformanceReviewTopicMapping } from 'src/modules/performance-reviews/entities/performance-review-topic-mapping.entity';
 import {
   BaseEntity,
   Entity,
@@ -10,17 +9,21 @@ import {
   DeleteDateColumn,
   OneToMany,
 } from 'typeorm';
+import { PerformanceReviewTopicMapping } from './performance-review-topic-mapping.entity';
 
-@Entity('performance_review_topics')
-export class PerformanceReviewTopic extends BaseEntity {
+@Entity('performance_reviews')
+export class PerformanceReview extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'topic', type: 'varchar', nullable: false })
-  topic: string;
+  @Column({ name: 'note', type: 'varchar', nullable: false })
+  note: string;
 
-  @Column({ name: 'description', type: 'varchar', nullable: false })
-  description: string;
+  @Column({ name: 'start_date', type: 'date', nullable: false })
+  startDate: Date;
+
+  @Column({ name: 'end_date', type: 'date', nullable: false })
+  endDate: Date;
 
   @CreateDateColumn({ name: 'created_at', nullable: false })
   createdAt: Timestamp;
@@ -35,7 +38,7 @@ export class PerformanceReviewTopic extends BaseEntity {
   @OneToMany(
     () => PerformanceReviewTopicMapping,
     (performanceReviewTopicMapping) =>
-      performanceReviewTopicMapping.performanceReviewTopic,
+      performanceReviewTopicMapping.performanceReview,
   )
   performanceReviewTopicMapping: PerformanceReviewTopicMapping[];
 }

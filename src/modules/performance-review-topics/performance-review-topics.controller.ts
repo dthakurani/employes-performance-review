@@ -14,7 +14,7 @@ import { Request, Response } from 'express';
 import { AuthGuard } from '../guards/auth.guard';
 import { RoleGuard } from '../guards/role.guard';
 import { Roles } from 'src/decorators/role.decorator';
-import { FindAllPerformanceReviewTopicsDyo } from './dto/find-all-performance-review-topic.dto';
+import { FindAllPerformanceReviewTopicsDto } from './dto/find-all-performance-review-topic.dto';
 
 @ApiBearerAuth('Bearer')
 @ApiTags('Performance Review Topics')
@@ -34,7 +34,7 @@ export class PerformanceReviewTopicsController {
   async findAll(
     @Req() req: Request,
     @Res() res: Response,
-    @Query() query: FindAllPerformanceReviewTopicsDyo,
+    @Query() query: FindAllPerformanceReviewTopicsDto,
   ) {
     try {
       const data = await this.performanceReviewTopicsService.findAll(query);

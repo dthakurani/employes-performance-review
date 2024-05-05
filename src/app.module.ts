@@ -15,6 +15,7 @@ import { UsersModule } from './modules/users/users.module';
 import { DesignationsModule } from './modules/designations/designations.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { PerformanceReviewTopicsModule } from './modules/performance-review-topics/performance-review-topics.module';
+import { PerformanceReviewsModule } from './modules/performance-reviews/performance-reviews.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { PerformanceReviewTopicsModule } from './modules/performance-review-topi
     DesignationsModule,
     AuthModule,
     PerformanceReviewTopicsModule,
+    PerformanceReviewsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

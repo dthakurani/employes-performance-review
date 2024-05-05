@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ILike } from 'typeorm';
 import { PerformanceReviewTopic } from './entities/performance-review-topic.entity';
-import { FindAllPerformanceReviewTopicsDyo } from './dto/find-all-performance-review-topic.dto';
+import { FindAllPerformanceReviewTopicsDto } from './dto/find-all-performance-review-topic.dto';
 
 @Injectable()
 export class PerformanceReviewTopicsService {
@@ -11,7 +11,7 @@ export class PerformanceReviewTopicsService {
     private readonly performanceReviewTopicsRepository: Repository<PerformanceReviewTopic>,
   ) {}
 
-  async findAll(query: FindAllPerformanceReviewTopicsDyo) {
+  async findAll(query: FindAllPerformanceReviewTopicsDto) {
     let whereQuery = {};
 
     if (query.searchString) {

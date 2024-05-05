@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsInt, IsOptional, IsString } from 'class-validator';
 
-export class FindAllPerformanceReviewTopicsDto {
+export class FindAllPerformanceReviewDto {
   @IsOptional()
   @Transform(({ value }) => value.trim())
   @IsString()
@@ -17,11 +17,11 @@ export class FindAllPerformanceReviewTopicsDto {
   @IsString()
   @ApiProperty({
     description: 'Sort',
-    example: 'topic',
+    example: 'note',
     required: false,
-    enum: ['topic'],
+    enum: ['note', 'startDate'],
   })
-  sortBy: 'topic' = 'topic';
+  sortBy: 'note' | 'startDate' = 'note';
 
   @IsOptional()
   @IsString()
